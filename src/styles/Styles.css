@@ -1,0 +1,117 @@
+/* -------------------Container--------------------------- */
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  background-image: url(../assets/Banner.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  font-family: "Montserrat", sans-serif;
+}
+.container {
+  padding: 1rem;
+}
+
+/* ---------------------------------------------------- */
+
+/* ------------------------NavBar---------------------- */
+.NavContainer {
+  padding: 1rem 5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #ecf1fb;
+}
+
+.Nav-link-container {
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  grid-gap: 5rem;
+  list-style: none;
+  text-align: center;
+  justify-content: end;
+}
+
+.logo {
+  font-size: 2.5rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.nav-link {
+  color: #ecf1fb;
+  padding: 1rem;
+  text-decoration: none;
+  transition: background-color 0.5s ease-in;
+  border-radius: 2rem;
+}
+.nav-link:hover {
+  background-color: #0c0c0c75;
+}
+.nav-link-login {
+  padding: 1rem 2rem;
+  background-color: #ecf1fb;
+  color: #0c003a;
+  border-radius: 2rem;
+  transition: background-color 0.5s ease-in;
+  text-decoration: none;
+}
+.nav-link-login:hover {
+  background-color: #ecf1fb8a;
+}
+.menu-icon {
+  cursor: pointer;
+  display: none;
+}
+
+@media screen and (max-width: 960px) {
+  .NavContainer {
+    padding: 0rem 2rem;
+    flex-direction: column;
+    background-color: #0c003a;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .Nav-link-container {
+    display: none;
+    opacity: 1;
+    transition: all 0.5s ease;
+  }
+  .Nav-link-container.active {
+    background-color: #0c003a;
+    display: flex;
+    padding: 3rem 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+    opacity: 1;
+    transition: all 0.5s ease;
+    z-index: 1;
+  }
+  .nav-link {
+    padding: 0.5rem;
+    text-align: center;
+  }
+  .nav-link-login {
+    padding: 1rem 1.5rem;
+  }
+  .container {
+    padding: 0rem;
+  }
+  .logo {
+    display: grid;
+    width: 100%;
+    grid-template-columns: auto auto;
+    gap: 2rem;
+    align-items: center;
+  }
+  .menu-icon {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+  }
+}
+
+/* -------------------------------------------------------- */
