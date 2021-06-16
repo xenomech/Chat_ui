@@ -1,0 +1,147 @@
+/* --------------------------------Chat--------------------- */
+
+.chat-icon {
+  background-color: #ecf1fb;
+  padding: 1.5rem;
+  position: absolute;
+  right: 3%;
+  bottom: 3%;
+  border-radius: 50% 50% 10% 50%;
+  z-index: 1;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  animation-duration: 1s;
+  animation-name: slidein;
+}
+
+@keyframes slidein {
+  from {
+    right: -10%;
+  }
+
+  to {
+    right: 3%;
+  }
+}
+
+.icon {
+  animation: icon 1s;
+}
+@keyframes icon {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.chat-icon > img {
+  width: 2rem;
+  height: 2rem;
+}
+
+.chatbox {
+  padding: 1rem;
+  position: absolute;
+  width: 25rem;
+  height: 25rem;
+  border-radius: 5%;
+  z-index: 1;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  bottom: 14%;
+  right: 3%;
+  background-color: white;
+  overflow: hidden;
+  animation: reveal 1s;
+}
+
+@keyframes reveal {
+  from {
+    bottom: -50%;
+  }
+  to {
+    bottom: 14%;
+  }
+}
+
+.header {
+  background: #7f8ac5;
+  padding: 1rem 2rem;
+  margin: 0.5rem 0rem;
+  color: white;
+  border-radius: 10px;
+}
+.startConvo {
+  padding: 1rem 2rem;
+}
+.convobtn {
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 1rem;
+  color: #ecf1fb;
+  align-items: center;
+  padding: 0.2rem;
+  border-radius: 50px;
+  margin: 2rem;
+  background: #13a884;
+  cursor: pointer;
+}
+.convobtn:hover {
+  background: #13a885a9;
+}
+.messagebox {
+  overflow-y: scroll;
+  height: 13rem;
+  box-sizing: content-box;
+  display: flex;
+  flex-direction: column;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+
+.message-client {
+  background-color: #4c5aa1;
+  width: fit-content;
+  margin: 0.5rem;
+  padding: 1rem;
+  border-radius: 12px 12px 5px 12px;
+}
+.avatar {
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+  background-color: #4c5aa1;
+}
+.message-server {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  background-color: #ecf1fb;
+  margin: 0.5rem;
+  padding: 1rem;
+  border-radius: 12px 12px 12px 0px;
+}
+.server-msg {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+/* -------------------------------------------------------------- */
+
+@media screen and (max-width: 370px) {
+  .chatbox {
+    bottom: 18%;
+    right: 1%;
+    width: 90vw;
+    border-radius: 0%;
+    animation: reveal 1s;
+  }
+  @keyframes reveal {
+    from {
+      bottom: -50%;
+    }
+    to {
+      bottom: 18%;
+    }
+  }
+}

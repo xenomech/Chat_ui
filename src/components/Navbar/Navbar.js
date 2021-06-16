@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Items } from "./Items";
 import { MdMenu, MdClear } from "react-icons/md";
-
+import "./navbar.css";
 const Navbar = () => {
   const [isClicked, setisClicked] = useState(false);
   return (
@@ -14,7 +14,11 @@ const Navbar = () => {
             setisClicked(!isClicked);
           }}
         >
-          {isClicked ? <MdClear /> : <MdMenu />}
+          {isClicked ? (
+            <MdClear className="icon" />
+          ) : (
+            <MdMenu className="icon" />
+          )}
         </div>
       </div>
       <ul

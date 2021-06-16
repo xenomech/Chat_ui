@@ -1,0 +1,17 @@
+/* ---------------------------Banner----------------------- */
+
+.banner {
+  padding: 2rem 10rem;
+  font-size: 3rem;
+  color: #ecf1fb;
+  letter-spacing: 0.2rem;
+  font-family: "Montserrat", sans-serif;
+}
+@media screen and (max-width: 960px) {
+  .banner {
+    padding: 1rem 2rem;
+    font-size: 2rem;
+    color: #0c003a;
+  }
+}
+/* --------------------------------------------------------- */
