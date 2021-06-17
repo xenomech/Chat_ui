@@ -2,7 +2,7 @@
 
 .chat-icon {
   background-color: #ecf1fb;
-  padding: 1rem;
+  padding: 1.2rem;
   position: absolute;
   right: 3%;
   bottom: 3%;
@@ -10,6 +10,7 @@
   z-index: 1;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   animation: slidein 0.5s;
+  cursor: pointer;
 }
 
 @keyframes slidein {
