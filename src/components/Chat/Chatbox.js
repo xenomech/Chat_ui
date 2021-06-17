@@ -38,6 +38,8 @@ export const ChatBox = () => {
       ]);
       // console.log(Chatdata);
       setCount(count + 1);
+      setmessage("");
+
       ptr.current.scrollIntoView({ behavior: "smooth" });
     }
   };
@@ -114,7 +116,7 @@ export const ChatBox = () => {
               onKeyPress={(e) => {
                 if (e.code === "Enter") {
                   addchat();
-                  setmessage("")
+                  setmessage("");
                 }
               }}
             />
