@@ -60,11 +60,11 @@
 @keyframes reveal {
   from {
     opacity: 0;
-    bottom: -50%;
+    /* bottom: -50%; */
   }
   to {
     opacity: 1;
-    bottom: 14%;
+    /* bottom: 14%; */
   }
 }
 
