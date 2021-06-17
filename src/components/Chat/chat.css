@@ -1,7 +1,7 @@
 /* --------------------------------Chat--------------------- */
 
 .chat-icon {
-  background-color: #ecf1fb;
+  background-color: white;
   padding: 1.2rem;
   position: absolute;
   right: 3%;
@@ -83,7 +83,7 @@
   display: flex;
   justify-content: space-evenly;
   font-size: 1rem;
-  color: #ecf1fb;
+  color: white;
   align-items: center;
   padding: 0.2rem;
   border-radius: 50px;
