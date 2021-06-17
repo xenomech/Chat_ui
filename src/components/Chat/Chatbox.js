@@ -36,7 +36,7 @@ export const ChatBox = () => {
           msg: message,
         },
       ]);
-      console.log(Chatdata);
+      // console.log(Chatdata);
       setCount(count + 1);
       ptr.current.scrollIntoView({ behavior: "smooth" });
     }
