@@ -1,5 +1,6 @@
-import { useRef, useState } from "react";
+import { useRef, useEffect, useState } from "react";
 import { MdSend } from "react-icons/md";
+import img from "../../assets/sparrow favicon.png";
 export const ChatBox = () => {
   const [Chatdata, setChatdata] = useState([
     {
@@ -10,22 +11,43 @@ export const ChatBox = () => {
   ]);
   const [NewConvo, setNewConvo] = useState(false);
   const [message, setmessage] = useState("");
+  const [count, setCount] = useState(0);
   const ptr = useRef();
 
-  const fn = () => {
-    fetch("https://api.adviceslip.com/advice")
-      .then((response) => response.json())
-      .then((data) =>
-        setChatdata(
-          Chatdata.concat({
-            id: Chatdata.length,
-            sentby: "server",
-            msg: data.slip.advice,
-          })
-        )
-      );
-  };
+  // const fn = async () => {
+  //   const response = await fetch("https://api.adviceslip.com/advice");
+  //   const data = await response.json();
+  //   setChatdata([
+  //     ...Chatdata,
+  //     {
+  //       id: Chatdata.length,
+  //       sentby: "server",
+  //       msg: data.slip.advice,
+  //     },
+  //   ]);
+  // };
 
+  useEffect(() => {
+    if (count !== 0) {
+      fetch("https://api.adviceslip.com/advice")
+        .then((response) => response.json())
+        .then((data) =>
+          setChatdata((c) => [
+            ...c,
+            {
+              id: c.length,
+              sentby: "server",
+              msg: data.slip.advice,
+            },
+          ])
+        );
+    }
+  }, [count]);
+  useEffect(() => {
+    if (Chatdata.length >= 4) {
+      ptr.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [Chatdata]);
   return (
     <div className="chatbox">
       <div className="header">
@@ -36,7 +58,12 @@ export const ChatBox = () => {
           <div className="messagebox">
             {Chatdata.map((i, index) => {
               return (
-                <div className={i.sentby === "server" ? "server-msg" : null}>
+                <div
+                  key={index}
+                  className={
+                    i.sentby === "server" ? "server-msg" : "client-msg"
+                  }
+                >
                   {i.sentby === "server" ? (
                     <div className="avatar"></div>
                   ) : null}
@@ -49,35 +76,46 @@ export const ChatBox = () => {
                     key={index}
                   >
                     {i.msg}
+
                     <span ref={ptr}></span>
                   </div>
                 </div>
               );
             })}
           </div>
-          <div>
+          <div className="info">
+            <img src={img} alt="ico" className="info-img" />
+            <p>we run on surveysparrow</p>
+          </div>
+          <hr />
+          <div className="ip">
             <input
+              className="ip-text"
               type="text"
               value={message}
+              placeholder="Write a reply....."
               onChange={(e) => {
                 setmessage(e.target.value);
               }}
             />
-            <button
+            <MdSend
+              className="btn"
               onClick={() => {
-                setChatdata(
-                  Chatdata.concat({
-                    id: Chatdata.length,
-                    sentby: "client",
-                    msg: message,
-                  })
-                );
-                console.log(Chatdata);
-                ptr.current.scrollIntoView({ behavior: "smooth" });
+                if (message !== "") {
+                  setChatdata([
+                    ...Chatdata,
+                    {
+                      id: Chatdata.length,
+                      sentby: "client",
+                      msg: message,
+                    },
+                  ]);
+                  console.log(Chatdata);
+                  setCount(count + 1);
+                  ptr.current.scrollIntoView({ behavior: "smooth" });
+                }
               }}
-            >
-              <MdSend />
-            </button>
+            />
           </div>
         </div>
       ) : (

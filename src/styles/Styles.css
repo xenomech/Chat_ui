@@ -10,6 +10,7 @@ body {
   background-size: cover;
   min-height: 100vh;
   font-family: "Montserrat", sans-serif;
+  scrollbar-width: none;
 }
 .container {
   padding: 1rem;

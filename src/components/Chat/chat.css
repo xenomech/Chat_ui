@@ -2,15 +2,14 @@
 
 .chat-icon {
   background-color: #ecf1fb;
-  padding: 1.5rem;
+  padding: 1rem;
   position: absolute;
   right: 3%;
   bottom: 3%;
-  border-radius: 50% 50% 10% 50%;
+  border-radius: 50% 50% 0% 50%;
   z-index: 1;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  animation-duration: 1s;
-  animation-name: slidein;
+  animation: slidein 0.5s;
 }
 
 @keyframes slidein {
@@ -40,25 +39,31 @@
 }
 
 .chatbox {
-  padding: 1rem;
+  padding: 0.5rem 1rem;
   position: absolute;
   width: 25rem;
-  height: 25rem;
-  border-radius: 5%;
+  height: auto;
+  border-radius: 10px;
   z-index: 1;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  bottom: 14%;
+  bottom: 12%;
   right: 3%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   background-color: white;
   overflow: hidden;
-  animation: reveal 1s;
+  animation: reveal 0.5s;
 }
 
 @keyframes reveal {
   from {
+    opacity: 0;
     bottom: -50%;
   }
   to {
+    opacity: 1;
     bottom: 14%;
   }
 }
@@ -66,12 +71,12 @@
 .header {
   background: #7f8ac5;
   padding: 1rem 2rem;
-  margin: 0.5rem 0rem;
+  margin: 0rem 0rem 1rem 0rem;
   color: white;
   border-radius: 10px;
 }
 .startConvo {
-  padding: 1rem 2rem;
+  padding: 0rem 2rem;
 }
 .convobtn {
   display: flex;
@@ -81,7 +86,7 @@
   align-items: center;
   padding: 0.2rem;
   border-radius: 50px;
-  margin: 2rem;
+  margin: 1rem;
   background: #13a884;
   cursor: pointer;
 }
@@ -90,10 +95,12 @@
 }
 .messagebox {
   overflow-y: scroll;
-  height: 13rem;
+  height: 16rem;
+  width: 24rem;
   box-sizing: content-box;
   display: flex;
   flex-direction: column;
+  scrollbar-width: none;
 }
 ::-webkit-scrollbar {
   display: none;
@@ -105,6 +112,7 @@
   margin: 0.5rem;
   padding: 1rem;
   border-radius: 12px 12px 5px 12px;
+  animation: msganimation 1s;
 }
 .avatar {
   height: 2rem;
@@ -125,23 +133,102 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  animation: msganimation 1s;
+}
+.client-msg {
+  display: flex;
+  justify-content: flex-end;
+
+  animation: msganimation 1s;
+}
+@keyframes msganimation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.ip {
+  padding: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.ip-text {
+  border: none;
+  font-size: 1.2rem;
+  padding: 0.2rem;
+  width: 80%;
+}
+.ip-text:focus {
+  border: none;
+  border-bottom: 2px solid #4c5aa1;
+  outline: none;
+}
+.btn {
+  font-size: 1.5rem;
+  color: #4c5aa1;
+}
+.info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: .8rem;
+}
+.info-img{
+  width: 1rem;
+  padding: 0rem .5rem;
 }
 /* -------------------------------------------------------------- */
 
-@media screen and (max-width: 370px) {
+@media screen and (max-width: 450px) {
   .chatbox {
-    bottom: 18%;
-    right: 1%;
-    width: 90vw;
-    border-radius: 0%;
-    animation: reveal 1s;
+    bottom: 14%;
+    right: 2%;
+    width: 80vw;
+    height: min-content;
+    border-radius: 10px;
+    animation: reveal 0.5s;
   }
   @keyframes reveal {
     from {
       bottom: -50%;
     }
     to {
-      bottom: 18%;
+      bottom: 14%;
     }
+  }
+  .messagebox {
+    height: 40vh;
+    width: 75vw;
+  }
+  .ip {
+    padding: 0.2rem;
+    margin: 0.2rem;
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .ip-text {
+    border: none;
+    font-size: 1rem;
+    padding: 0.5rem;
+  }
+  .ip-text:focus {
+    border: none;
+    border-bottom: 2px solid #4c5aa1;
+    outline: none;
+  }
+  .btn {
+    font-size: 1.5rem;
+    color: #4c5aa1;
+  }
+  .startConvo {
+    padding: 0rem 1rem;
+  }
+  .header {
+    margin: 0rem 0rem 0.5rem 0rem;
   }
 }

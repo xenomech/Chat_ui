@@ -14,7 +14,11 @@ const Chat = () => {
           setisOpen(!isOpen);
         }}
       >
-        {isOpen ? <MdClear className="icon" size="2rem" /> : <img className="icon" src={img} alt="icon" />}
+        {isOpen ? (
+          <MdClear className="icon" size="2rem" />
+        ) : (
+          <img className="icon" src={img} alt="icon" />
+        )}
       </div>
     </div>
   );
