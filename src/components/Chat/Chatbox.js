@@ -26,7 +26,21 @@ export const ChatBox = () => {
   //     },
   //   ]);
   // };
-
+  const addchat = () => {
+    if (message !== "") {
+      setChatdata([
+        ...Chatdata,
+        {
+          id: Chatdata.length,
+          sentby: "client",
+          msg: message,
+        },
+      ]);
+      console.log(Chatdata);
+      setCount(count + 1);
+      ptr.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   useEffect(() => {
     if (count !== 0) {
       fetch("https://api.adviceslip.com/advice")
@@ -51,7 +65,7 @@ export const ChatBox = () => {
   return (
     <div className="chatbox">
       <div className="header">
-        <h2> Hi There</h2> <p>Hello Ask Us Anything. ShareYour Feedback</p>
+        <h2> Hi There</h2> <p>Hello Ask Us Anything. Share Your Feedback</p>
       </div>
       {NewConvo ? (
         <div>
@@ -97,25 +111,14 @@ export const ChatBox = () => {
               onChange={(e) => {
                 setmessage(e.target.value);
               }}
-            />
-            <MdSend
-              className="btn"
-              onClick={() => {
-                if (message !== "") {
-                  setChatdata([
-                    ...Chatdata,
-                    {
-                      id: Chatdata.length,
-                      sentby: "client",
-                      msg: message,
-                    },
-                  ]);
-                  console.log(Chatdata);
-                  setCount(count + 1);
-                  ptr.current.scrollIntoView({ behavior: "smooth" });
+              onKeyPress={(e) => {
+                if (e.code === "Enter") {
+                  addchat();
+                  setmessage("")
                 }
               }}
             />
+            <MdSend className="btn" onClick={addchat} />
           </div>
         </div>
       ) : (
