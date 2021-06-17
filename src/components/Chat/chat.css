@@ -113,7 +113,7 @@
   width: fit-content;
   margin: 0.5rem;
   padding: 1rem;
-  border-radius: 12px 12px 5px 12px;
+  border-radius: 15px 15px 0px 15px;
   animation: msganimation 1s;
 }
 .avatar {
@@ -129,7 +129,7 @@
   background-color: #ecf1fb;
   margin: 0.5rem;
   padding: 1rem;
-  border-radius: 12px 12px 12px 0px;
+  border-radius: 15px 15px 15px 0px;
 }
 .server-msg {
   display: flex;

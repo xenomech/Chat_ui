@@ -4,7 +4,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: #ecf1fb;
+  color: white;
 }
 
 .Nav-link-container {
@@ -23,7 +23,7 @@
 }
 
 .nav-link {
-  color: #ecf1fb;
+  color: white;
   padding: 1rem;
   text-decoration: none;
   transition: background-color 0.5s ease-in;
@@ -34,14 +34,14 @@
 }
 .nav-link-login {
   padding: 1rem 2rem;
-  background-color: #ecf1fb;
+  background-color: white;
   color: #0c003a;
   border-radius: 2rem;
   transition: background-color 0.5s ease-in;
   text-decoration: none;
 }
 .nav-link-login:hover {
-  background-color: #ecf1fb8a;
+  background-color: #ecf1fb;
 }
 .menu-icon {
   cursor: pointer;
