@@ -242,7 +242,7 @@
     margin: 0rem 0rem 0.5rem 0rem;
   }
 }
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 370px) {
   .chat-icon {
     right: 2vw;
     bottom: 2vh;
@@ -253,7 +253,7 @@
     bottom: 15vh;
     right: 2vw;
     width: 80vw;
-    height: 80vh;
+    height: 75vh;
     border-radius: 10px;
     animation: reveal 0.5s;
   }
